@@ -26,9 +26,9 @@ var x;
 var y;
 
 dibujarLinea("red", 0, 0, 300, 0, papel);
-dibujarLinea("red", 300, 0, 300, 300, papel);
-dibujarLinea("red", 300, 300, 0, 300, papel);
-dibujarLinea("red", 0, 300, 0, 0, papel);
+dibujarLinea("red", 300, 0, 300, 500, papel);
+dibujarLinea("red", 300, 500, 0, 500, papel);
+dibujarLinea("red", 0, 500, 0, 0, papel);
 
 function dibujarLinea(color, x_inicial, y_inicial, x_final, y_final, lienzo)
 {
