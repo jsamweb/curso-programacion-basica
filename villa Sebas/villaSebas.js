@@ -29,20 +29,51 @@ fondo.imagen.addEventListener("load", cargarFondo);
 
 vaca.imagen = new Image();
 vaca.imagen.src = vaca.url;
-vaca.imagen.addEventListener("load", cargarAnimal);
+vaca.imagen.addEventListener("load", cargarVaca);
 
 cerdo.imagen = new Image();
 cerdo.imagen.src = cerdo.url;
-cerdo.imagen.addEventListener("load", cargarAnimal);
+cerdo.imagen.addEventListener("load", cargarCerdo);
 
 pollo.imagen = new Image();
 pollo.imagen.src = pollo.url;
-pollo.imagen.addEventListener("load", cargarAnimal);
+pollo.imagen.addEventListener("load", cargarPollo);
 
 sebas.imagen = new Image();
 sebas.imagen.src = sebas.url;
-sebas.imagen.addEventListener("load", cargarAnimal);
+sebas.imagen.addEventListener("load", cargarSebas);
 
+var xLobo = 150
+var yLobo = 150
+
+function moverLobo(mover){
+    var movimiento = 64;
+    var teclas = {
+        LEFT: 37,
+		UP: 38,
+		RIGHT: 39,
+		DOWN: 40
+    }
+    switch(mover.keyCode)
+	{
+		case teclas.LEFT:
+			xLobo = xLobo - movimiento;
+			dibujar(xLobo, yLobo);
+		break;
+		case teclas.UP:
+			yLobo = yLobo - movimiento;
+			dibujar(xLobo, yLobo);
+		break;
+		case teclas.RIGHT:
+			xLobo = xLobo + movimiento;
+			dibujar(xLobo, yLobo);
+		break;
+		case teclas.DOWN:
+			yLobo = yLobo + movimiento;
+			dibujar(xLobo, yLobo);
+		break;
+	}
+}
 
 
 function dibujar(){
@@ -52,16 +83,63 @@ function dibujar(){
     }
 
     if(vaca.cargaOk == true){
-        papel.drawImage(vaca.imagen, 0, 0);
+        for(var a=0; a < cantidad; a++){
+
+            var x = aleatorio(0, 8);
+            var y = aleatorio(0, 8);
+            var x = x * 50;
+            var y = y * 50;
+            papel.drawImage(vaca.imagen, x, y);
         }
+
+    }
+    if(cerdo.cargaOk == true){
+        for(var a=0; a < cantidad; a++){
+
+            var x = aleatorio(0, 8);
+            var y = aleatorio(0, 8);
+            var x = x * 50;
+            var y = y * 50;
+            papel.drawImage(cerdo.imagen, x, y);
+        }
+    }
+    if(pollo.cargaOk == true){
+        for(var a=0; a < cantidad; a++){
+
+            var x = aleatorio(0, 8);
+            var y = aleatorio(0, 8);
+            var x = x * 50;
+            var y = y * 50;
+            papel.drawImage(pollo.imagen, x, y);
+        }
+
+    }
+    if(sebas.cargaOk == true){
+            papel.drawImage(sebas.imagen, xLobo, yLobo);
+
+    }
+
 }
+var cantidad = aleatorio(1, 13);
 
 function cargarFondo(){
     fondo.cargaOk = true;
     dibujar();
 }
-function cargarAnimal(){
+function cargarVaca(){
     vaca.cargaOk = true;
+    dibujar();
+}
+function cargarCerdo(){
+    cerdo.cargaOk = true;
+    dibujar();
+}
+function cargarPollo(){
+    pollo.cargaOk = true;
+    dibujar();
+}
+function cargarSebas(){
+    sebas.cargaOk = true;
     dibujar();
 }
 
