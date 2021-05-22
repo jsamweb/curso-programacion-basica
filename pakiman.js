@@ -14,10 +14,10 @@ class pakiman
 
         this.imagen.src = imagenes[this.nombre];
     }
-    // hablar()
-    // {
-    //     alert(this.nombre);
-    // }
+    hablar()
+    {
+        alert(this.nombre);
+    }
     mostrar()
     {
         document.body.appendChild(this.imagen);
@@ -26,10 +26,15 @@ class pakiman
         document.write("vida:" + this.vida + "<hr>");
     }
 }
-var cauchin = new pakiman("cauchin", 100, 30);
-var pokacho = new pakiman("pokacho", 80, 50);
-var tocinauro = new pakiman("tocinauro", 120, 40);
 
-pokacho.mostrar();
-cauchin.mostrar();
-tocinauro.mostrar();
+var coleccion = [];
+{
+    coleccion.push(new pakiman("cauchin", 100, 30));
+    coleccion.push(new pakiman("pokacho", 80, 50));
+    coleccion.push(new pakiman("tocinauro", 120, 40));
+}
+for(var desplegar of coleccion)
+{
+    desplegar.mostrar();
+}
+
